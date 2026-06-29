@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+runs/
+export/
+data/
+*.pt
+*.onnx
+.pytest_cache/
+.DS_Store

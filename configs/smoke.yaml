@@ -1,0 +1,29 @@
+# Tiny end-to-end run on synthetic data (seconds, CPU ok).
+# Exercises data -> multi-head model -> loss -> metrics -> calibration path.
+data:
+  kind: synthetic
+  image_size: 96
+  synthetic_n: 240
+  val_fraction: 0.25
+model:
+  backbone: resnet_scratch
+  width: 16
+  dropout: 0.1
+  attributes: [asymmetry, border, color, diameter]
+  malignancy_mode: fused
+loss:
+  w_malignancy: 1.0
+  w_attributes: 0.5
+  focal_gamma: 2.0
+  pos_weight: 2.0
+train:
+  epochs: 8
+  batch_size: 16
+  lr: 0.001
+  num_workers: 0
+  amp: false
+  warmup_epochs: 1
+  early_stop_patience: 10
+  out_dir: runs/smoke
+  log_every: 5
+  select_metric: auroc
