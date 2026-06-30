@@ -119,5 +119,4 @@ configs/{smoke,isic}.yaml
 Dermoscopy images and labels from the [ISIC Archive](https://www.isic-archive.com)
 (CC-licensed). Code is MIT (see `LICENSE`).
 
-> The synthetic generator is for pipeline testing only; reported clinical-grade
-> numbers should come from training on real ISIC labels.
+
